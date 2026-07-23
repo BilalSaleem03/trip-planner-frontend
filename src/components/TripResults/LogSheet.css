@@ -1,6 +1,18 @@
 /* src/components/TripResults/LogSheet.css */
 
 .log-sheet-container {
+  --eld-bg: #0b0f1a;
+  --eld-bg-card: #0d1117;
+  --eld-border: rgba(148, 163, 184, 0.18);
+  --eld-border-strong: rgba(148, 163, 184, 0.32);
+  --eld-text: #e6edf3;
+  --eld-text-secondary: #8b95a1;
+  --eld-text-muted: #5b6472;
+  --eld-accent: #4f8ef7;
+  --eld-accent-fill: rgba(79, 142, 247, 0.22);
+  --eld-row-band: rgba(255, 255, 255, 0.015);
+  --eld-row-band-alt: transparent;
+
   background: white;
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -32,135 +44,127 @@
   color: var(--color-text-secondary);
 }
 
-/* ELD Graph */
+/* ELD Graph - dark card */
 .eld-graph {
-  display: flex;
-  border: 2px solid #333;
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  background: white;
+  background: var(--eld-bg);
+  border: 1px solid var(--eld-border-strong);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
   margin-bottom: var(--spacing-md);
 }
 
-/* Status Labels - Left */
+.eld-graph-title {
+  color: var(--eld-text);
+  font-size: var(--font-lg);
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+}
+
+.eld-graph-body {
+  display: flex;
+  border: 1px solid var(--eld-border-strong);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--eld-bg-card);
+}
+
+/* Status Labels - Left side */
 .status-labels {
   display: flex;
   flex-direction: column;
-  min-width: 90px;
-  background: #f5f5f5;
-  border-right: 2px solid #333;
+  min-width: 110px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--eld-border);
+}
+
+/* Matches the height + border of .hour-labels exactly, so the label rows
+   below start at the same y as row 0 of the SVG graph on the right */
+.status-labels-spacer {
+  height: 24px;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--eld-border-strong);
+  flex-shrink: 0;
 }
 
 .status-label-row {
-  height: 32px;
+  height: 44px;
+  box-sizing: border-box;
   display: flex;
-  align-items: center;
-  padding: 0 6px;
-  border-bottom: 1px solid #ccc;
-  font-size: 10px;
-  font-weight: 700;
-  line-height: 1.1;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 10px;
+  border-bottom: 1px solid var(--eld-border);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--eld-text-secondary);
 }
 
 .status-label-row:last-child {
   border-bottom: none;
 }
 
-.label-off { color: #666; }
-.label-sb { color: #B8860B; }
-.label-driving { color: #2E7D32; }
-.label-on { color: #C62828; }
-
 /* Grid */
 .eld-grid {
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
-/* Hour Labels */
+/* Hour Labels - Top */
 .hour-labels {
   display: grid;
   grid-template-columns: repeat(24, 1fr);
-  background: #f5f5f5;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid var(--eld-border-strong);
+  height: 24px;
+  box-sizing: border-box;
 }
 
 .hour-label {
   font-size: 9px;
   text-align: center;
-  padding: 2px 0;
+  padding: 4px 0;
   font-weight: 600;
-  color: #333;
-  border-right: 1px solid #e0e0e0;
+  color: var(--eld-text-secondary);
 }
 
-.hour-label:last-child {
-  border-right: none;
+/* SVG duty-status graph */
+.eld-svg {
+  display: block;
+  width: 100%;
 }
 
-/* Status Bars */
-.status-bars {
-  display: flex;
-  flex-direction: column;
+.eld-row-band {
+  fill: var(--eld-row-band);
 }
 
-.status-row {
-  display: grid;
-  grid-template-columns: repeat(24, 1fr);
-  height: 32px;
-  border-bottom: 1px solid #333;
+.eld-fill-rect {
+  fill: var(--eld-accent-fill);
 }
 
-.status-row:last-child {
-  border-bottom: none;
+.eld-gridline-major {
+  stroke: var(--eld-border-strong);
+  stroke-width: 1;
 }
 
-.status-cell {
-  border-right: 1px solid #e0e0e0;
-  height: 100%;
-  transition: background-color 0.2s ease;
+.eld-gridline-minor {
+  stroke: var(--eld-border);
+  stroke-width: 1;
 }
 
-.status-cell:last-child {
-  border-right: none;
+.eld-gridline-row {
+  stroke: var(--eld-border);
+  stroke-width: 1;
 }
 
-/* Status Colors */
-.active-off {
-  background-color: #E8E8E8 !important;
-}
-
-.active-sb {
-  background-color: #FFD700 !important;
-}
-
-.active-driving {
-  background-color: #4CAF50 !important;
-}
-
-.active-on {
-  background-color: #FF6B6B !important;
-}
-
-/* Midnight Labels */
-.midnight-labels {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: #f5f5f5;
-  border-top: 1px solid #333;
-}
-
-.midnight-labels span {
-  font-size: 9px;
-  text-align: center;
-  padding: 2px 0;
-  color: #666;
-  font-weight: 600;
-}
-
-.midnight-labels span:first-child {
-  border-right: 1px solid #e0e0e0;
+.eld-step-line {
+  fill: none;
+  stroke: var(--eld-accent);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
 }
 
 /* Driver Info */
@@ -254,43 +258,34 @@
     flex-direction: column;
     align-items: flex-start;
   }
-  
-  .eld-graph {
-    flex-direction: column;
+
+  .eld-graph-body {
+    overflow-x: auto;
   }
-  
+
   .status-labels {
-    flex-direction: row;
-    min-width: 100%;
-    border-right: none;
-    border-bottom: 1px solid #333;
+    min-width: 84px;
   }
-  
+
   .status-label-row {
-    flex: 1;
-    height: 24px;
-    border-bottom: none;
-    border-right: 1px solid #ccc;
-    justify-content: center;
-    font-size: 8px;
+    /* height intentionally left unset here so it stays in sync with
+       ROW_HEIGHT in LogSheet.jsx and lines up with the fixed-height SVG graph */
+    font-size: 9px;
+    padding: 0 6px;
   }
-  
-  .status-label-row:last-child {
-    border-right: none;
+
+  .eld-grid {
+    min-width: 620px;
   }
-  
-  .status-row {
-    height: 24px;
-  }
-  
+
   .hour-label {
     font-size: 7px;
   }
-  
+
   .driver-info-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .hours-summary-box {
     max-width: 100%;
   }

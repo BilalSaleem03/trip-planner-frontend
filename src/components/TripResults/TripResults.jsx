@@ -28,8 +28,8 @@ const TripResults = ({ data, onReset }) => {
 
   const { trip, route, logs, stops } = data;
 
-  // Get locations from trip data
-  const currentLocation = trip?.current_location || trip?.start_location || 'N/A';
+  // Get locations from trip data - with fallbacks
+  const currentLocation = trip?.current_location || 'N/A';
   const pickupLocation = trip?.pickup_location || 'N/A';
   const dropoffLocation = trip?.dropoff_location || 'N/A';
 
@@ -113,7 +113,6 @@ const TripResults = ({ data, onReset }) => {
                 log={logs[selectedDay]} 
                 dayNumber={selectedDay + 1}
                 totalDays={logs.length}
-                tripData={data}
               />
             )}
             

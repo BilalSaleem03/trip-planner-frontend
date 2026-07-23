@@ -1,0 +1,14 @@
+/* src/components/common/Footer.css */
+
+.footer {
+  background-color: var(--color-dark);
+  color: var(--color-text-light);
+  padding: var(--spacing-md) 0;
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer p {
+  font-size: var(--font-sm);
+  opacity: 0.8;
+}

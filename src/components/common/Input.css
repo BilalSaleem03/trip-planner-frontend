@@ -1,0 +1,54 @@
+/* src/components/common/Input.css */
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.input-label {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.input-required {
+  color: #e74c3c;
+  margin-left: var(--spacing-xs);
+}
+
+.input-field {
+  padding: var(--spacing-md);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-md);
+  font-family: inherit;
+  transition: border-color var(--transition-fast);
+  background-color: white;
+  color: var(--color-text-primary);
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.input-field:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.input-field::placeholder {
+  color: var(--color-text-secondary);
+  opacity: 0.6;
+}
+
+/* Error state */
+.input-error .input-field {
+  border-color: #e74c3c;
+}
+
+.input-error-message {
+  font-size: var(--font-xs);
+  color: #e74c3c;
+}

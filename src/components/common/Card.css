@@ -1,0 +1,25 @@
+/* src/components/common/Card.css */
+
+.card {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-normal);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.card-primary {
+  border-left: 4px solid var(--color-dark);
+}
+
+.card-secondary {
+  border-left: 4px solid var(--color-secondary);
+}
+
+.card-accent {
+  border-left: 4px solid var(--color-accent);
+}

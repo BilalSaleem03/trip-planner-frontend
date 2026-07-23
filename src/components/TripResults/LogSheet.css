@@ -1,0 +1,297 @@
+/* src/components/TripResults/LogSheet.css */
+
+.log-sheet-container {
+  background: white;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  padding: var(--spacing-md);
+}
+
+/* Header */
+.log-sheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) 0 var(--spacing-md);
+  border-bottom: 2px solid var(--color-border);
+  margin-bottom: var(--spacing-md);
+}
+
+.log-title h3 {
+  color: var(--color-dark);
+  margin: 0;
+  font-size: var(--font-lg);
+}
+
+.log-stats {
+  display: flex;
+  gap: var(--spacing-md);
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+}
+
+/* ELD Graph */
+.eld-graph {
+  display: flex;
+  border: 2px solid #333;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: white;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Status Labels - Left */
+.status-labels {
+  display: flex;
+  flex-direction: column;
+  min-width: 90px;
+  background: #f5f5f5;
+  border-right: 2px solid #333;
+}
+
+.status-label-row {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  border-bottom: 1px solid #ccc;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.status-label-row:last-child {
+  border-bottom: none;
+}
+
+.label-off { color: #666; }
+.label-sb { color: #B8860B; }
+.label-driving { color: #2E7D32; }
+.label-on { color: #C62828; }
+
+/* Grid */
+.eld-grid {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hour Labels */
+.hour-labels {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  background: #f5f5f5;
+  border-bottom: 1px solid #333;
+}
+
+.hour-label {
+  font-size: 9px;
+  text-align: center;
+  padding: 2px 0;
+  font-weight: 600;
+  color: #333;
+  border-right: 1px solid #e0e0e0;
+}
+
+.hour-label:last-child {
+  border-right: none;
+}
+
+/* Status Bars */
+.status-bars {
+  display: flex;
+  flex-direction: column;
+}
+
+.status-row {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  height: 32px;
+  border-bottom: 1px solid #333;
+}
+
+.status-row:last-child {
+  border-bottom: none;
+}
+
+.status-cell {
+  border-right: 1px solid #e0e0e0;
+  height: 100%;
+  transition: background-color 0.2s ease;
+}
+
+.status-cell:last-child {
+  border-right: none;
+}
+
+/* Status Colors */
+.active-off {
+  background-color: #E8E8E8 !important;
+}
+
+.active-sb {
+  background-color: #FFD700 !important;
+}
+
+.active-driving {
+  background-color: #4CAF50 !important;
+}
+
+.active-on {
+  background-color: #FF6B6B !important;
+}
+
+/* Midnight Labels */
+.midnight-labels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #f5f5f5;
+  border-top: 1px solid #333;
+}
+
+.midnight-labels span {
+  font-size: 9px;
+  text-align: center;
+  padding: 2px 0;
+  color: #666;
+  font-weight: 600;
+}
+
+.midnight-labels span:first-child {
+  border-right: 1px solid #e0e0e0;
+}
+
+/* Driver Info */
+.driver-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) 0;
+  border-top: 1px solid var(--color-border);
+  margin-bottom: var(--spacing-sm);
+}
+
+.driver-info-row {
+  display: flex;
+  gap: var(--spacing-lg);
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+}
+
+/* Remarks */
+.remarks-section {
+  padding: var(--spacing-md);
+  background: var(--color-primary);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  margin-bottom: var(--spacing-md);
+}
+
+.remarks-label {
+  font-weight: 700;
+  font-size: var(--font-sm);
+  color: var(--color-dark);
+  margin-bottom: var(--spacing-xs);
+}
+
+.remarks-content {
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+}
+
+.remark-item {
+  padding: 2px 0;
+  font-family: monospace;
+  font-size: 13px;
+}
+
+/* Hours Summary */
+.hours-summary-box {
+  padding: var(--spacing-md);
+  border: 2px solid var(--color-dark);
+  border-radius: var(--radius-sm);
+  max-width: 280px;
+  margin-left: auto;
+  background: white;
+}
+
+.summary-title {
+  font-weight: 700;
+  font-size: var(--font-sm);
+  color: var(--color-dark);
+  text-align: center;
+  margin-bottom: var(--spacing-sm);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 2px solid var(--color-dark);
+}
+
+.summary-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+  padding: 2px 0;
+}
+
+.summary-row.total {
+  font-weight: 700;
+  color: var(--color-dark);
+  border-top: 2px solid var(--color-dark);
+  padding-top: var(--spacing-xs);
+  margin-top: var(--spacing-xs);
+}
+
+@media (max-width: 768px) {
+  .log-sheet-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .eld-graph {
+    flex-direction: column;
+  }
+  
+  .status-labels {
+    flex-direction: row;
+    min-width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #333;
+  }
+  
+  .status-label-row {
+    flex: 1;
+    height: 24px;
+    border-bottom: none;
+    border-right: 1px solid #ccc;
+    justify-content: center;
+    font-size: 8px;
+  }
+  
+  .status-label-row:last-child {
+    border-right: none;
+  }
+  
+  .status-row {
+    height: 24px;
+  }
+  
+  .hour-label {
+    font-size: 7px;
+  }
+  
+  .driver-info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hours-summary-box {
+    max-width: 100%;
+  }
+}

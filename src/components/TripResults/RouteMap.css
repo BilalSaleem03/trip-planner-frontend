@@ -1,0 +1,103 @@
+/* src/components/TripResults/RouteMap.css */
+
+.route-map-container {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  background: #f0f0f0;
+}
+
+.route-map-container .leaflet-container {
+  border-radius: var(--radius-md);
+}
+
+/* Custom marker styles */
+.custom-marker {
+  background: none;
+  border: none;
+}
+
+.custom-marker div {
+  transition: transform 0.2s ease;
+}
+
+.custom-marker div:hover {
+  transform: scale(1.1);
+}
+
+/* Legend */
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: white;
+  border-radius: var(--radius-md);
+  margin-top: var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+}
+
+.legend-title {
+  font-weight: 700;
+  color: var(--color-dark);
+  font-size: var(--font-sm);
+}
+
+.legend-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+}
+
+.legend-credit {
+  font-size: var(--font-xs);
+  color: var(--color-text-secondary);
+  opacity: 0.7;
+}
+
+/* Hide Leaflet attribution */
+.leaflet-control-attribution {
+  font-size: 9px !important;
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .route-map-container .leaflet-container {
+    height: 350px !important;
+  }
+  
+  .map-legend {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--spacing-md);
+  }
+  
+  .legend-items {
+    flex-wrap: wrap;
+  }
+  
+  .legend-item {
+    font-size: var(--font-xs);
+  }
+}
+
+/* No data message */
+.no-data-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  color: var(--color-text-secondary);
+  font-size: var(--font-lg);
+}
